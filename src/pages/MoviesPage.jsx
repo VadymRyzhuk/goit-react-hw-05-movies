@@ -25,7 +25,7 @@ export const MoviesPage = () => {
         setStatus('pending');
         const findMovies = await searchMovieByQuery(searchTerm);
         setMovies(findMovies);
-        console.log(findMovies); //--------------------------------------------------------------------LOG array 20!!
+        //console.log(findMovies); //--------------------------------------------------------------------LOG array 20!!
         setStatus('success');
       } catch (error) {
         setError(error.message);
@@ -51,7 +51,11 @@ export const MoviesPage = () => {
 
       {status === 'success' && (
         <div>
-          {movies.length > 0 ? <MoviesList movies={movies} /> : <NoImages />}
+          {movies.length > 0 ? (
+            <MoviesList movies={movies} />
+          ) : (
+            `No images foond!`
+          )}
         </div>
       )}
     </div>

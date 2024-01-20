@@ -11,7 +11,7 @@ export const App = () => {
 
       <HomePage />
       <br />
-      {/* <MoviesPage /> */}
+      <MoviesPage />
     </div>
   );
 };
