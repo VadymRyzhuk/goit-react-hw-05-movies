@@ -1,16 +1,17 @@
+import { HomePage } from 'pages/HomePage';
+import { MoviesPage } from 'pages/MoviesPage';
+
+import React from 'react';
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <p>Home</p>
+      <p>Movies</p>
+      <br />
+
+      <HomePage />
+      <br />
+      {/* <MoviesPage /> */}
     </div>
   );
 };
