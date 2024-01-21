@@ -1,17 +1,42 @@
 import { HomePage } from 'pages/HomePage';
-import { MoviesPage } from 'pages/MoviesPage';
+
+import { NavLink, Routes, Route } from 'react-router-dom';
+import css from './App.module.css';
 
 import React from 'react';
+import { MoviesPage } from 'pages/MoviesPage';
 export const App = () => {
   return (
     <div>
-      <p>Home</p>
-      <p>Movies</p>
+      <header>
+        <NavLink
+          className={({ isActive }) =>
+            `${css.link} ${isActive ? css.active : ''}`
+          }
+          to="/"
+        >
+          Home
+        </NavLink>
+
+        <NavLink
+          className={({ isActive }) =>
+            `${css.link} ${isActive ? css.active : ''}`
+          }
+          to="/movies"
+        >
+          Movies
+        </NavLink>
+      </header>
       <br />
 
-      <HomePage />
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies" element={<MoviesPage />} />
+        </Routes>
+      </main>
+      {/* <HomePage /> */}
       <br />
-      <MoviesPage />
     </div>
   );
 };

@@ -2,10 +2,11 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { showTrendingMovies } from 'services/api';
 import { MoviesList } from 'components/MoviesList';
+
 export const HomePage = () => {
   const [status, setStatus] = useState('idle');
   const [movies, setMovies] = useState(null);
-  const [error, setError] = useState(null);
+  //const [error, setError] = useState(null);
 
   useEffect(() => {
     const showTrending = async () => {
@@ -17,7 +18,7 @@ export const HomePage = () => {
         // console.log(trending); //--------------------------------------------------------------------LOG array 20!!
         setStatus('success');
       } catch (error) {
-        setError(error.message);
+        //setError(error.message);
         //setStatus('error');
       }
     };

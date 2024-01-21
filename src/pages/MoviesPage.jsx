@@ -7,7 +7,7 @@ export const MoviesPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [status, setStatus] = useState('idle');
   const [movies, setMovies] = useState(null);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -28,7 +28,7 @@ export const MoviesPage = () => {
         //console.log(findMovies); //--------------------------------------------------------------------LOG array 20!!
         setStatus('success');
       } catch (error) {
-        setError(error.message);
+        // setError(error.message);
         //setStatus('error');
       }
     };
