@@ -43,6 +43,56 @@ export async function searchMovieByQuery(query) {
   return response.data.results;
 }
 
-// export async function showMovieDetails(id) {
+export async function showMovieDetails(id) {
+  const options = {
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/${id}`,
+    params: {
+      api_key: API_KEY,
+      language: 'en-US',
+    },
+    headers: {
+      accept: 'application/json',
+      Authorization: AUTHORIZATION,
+    },
+  };
+  const response = await axios(options);
 
-// }
+  return response.data;
+}
+
+export async function showMovieCast(id) {
+  const options = {
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/${id}/credits`,
+    params: {
+      api_key: API_KEY,
+      language: 'en-US',
+    },
+    headers: {
+      accept: 'application/json',
+      Authorization: AUTHORIZATION,
+    },
+  };
+  const response = await axios(options);
+
+  return response.data.cast;
+}
+
+export async function showMovieReview(id) {
+  const options = {
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/${id}/reviews`,
+    params: {
+      api_key: API_KEY,
+      language: 'en-US',
+    },
+    headers: {
+      accept: 'application/json',
+      Authorization: AUTHORIZATION,
+    },
+  };
+  const response = await axios(options);
+
+  return response.data.results;
+}

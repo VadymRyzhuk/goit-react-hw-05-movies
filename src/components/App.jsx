@@ -1,5 +1,5 @@
 import { HomePage } from 'pages/HomePage';
-
+import { MovieDetailsPage } from 'pages/MovieDetailsPage/MovieDetailsPage';
 import { NavLink, Routes, Route } from 'react-router-dom';
 import css from './App.module.css';
 
@@ -23,6 +23,7 @@ export const App = () => {
             `${css.link} ${isActive ? css.active : ''}`
           }
           to="/movies"
+          end
         >
           Movies
         </NavLink>
@@ -33,10 +34,9 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/movies/:movieId/*" element={<MovieDetailsPage />} />
         </Routes>
       </main>
-      {/* <HomePage /> */}
-      <br />
     </div>
   );
 };

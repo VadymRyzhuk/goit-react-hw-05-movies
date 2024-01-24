@@ -1,8 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { showTrendingMovies } from 'services/api';
-import { MoviesList } from 'components/MoviesList';
+import { MoviesList } from 'components/MoviesList/MoviesList';
 
+const pStyle = {
+  marginLeft: 40,
+};
 export const HomePage = () => {
   const [status, setStatus] = useState('idle');
   const [movies, setMovies] = useState(null);
@@ -27,8 +30,8 @@ export const HomePage = () => {
   }, []);
   return (
     <div>
-      Trending today
-      <br />
+      <p style={pStyle}>Trending today</p>
+
       {status === 'success' && <MoviesList movies={movies} />}
     </div>
   );
