@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { showMovieCast } from 'services/api';
 import { CastList } from 'components/CastList/CastList';
 
-export const CastPage = () => {
+const CastPage = () => {
   const { movieId } = useParams();
   const [status, setStatus] = useState('idle');
   const [movieCast, setMovieCast] = useState(null);
@@ -31,3 +31,5 @@ export const CastPage = () => {
     <div>{status === 'success' && <CastList movieCast={movieCast} />}</div>
   );
 };
+
+export default CastPage;

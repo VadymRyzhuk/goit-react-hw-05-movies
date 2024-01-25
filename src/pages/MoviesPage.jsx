@@ -4,7 +4,7 @@ import { searchMovieByQuery } from 'services/api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useSearchParams } from 'react-router-dom';
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
   //console.log(query); // ------------------------------------------------------------------------------------------ LOG
@@ -72,3 +72,5 @@ export const MoviesPage = () => {
     </div>
   );
 };
+
+export default MoviesPage;

@@ -6,7 +6,7 @@ import { MoviesList } from 'components/MoviesList/MoviesList';
 const pStyle = {
   marginLeft: 40,
 };
-export const HomePage = () => {
+const HomePage = () => {
   const [status, setStatus] = useState('idle');
   const [movies, setMovies] = useState(null);
   //const [error, setError] = useState(null);
@@ -36,3 +36,5 @@ export const HomePage = () => {
     </div>
   );
 };
+
+export default HomePage;

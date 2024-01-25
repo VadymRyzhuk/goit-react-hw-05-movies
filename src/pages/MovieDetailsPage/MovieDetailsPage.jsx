@@ -1,4 +1,9 @@
-import React, { useRef, useState, useEffect } from 'react';
+//import { CastPage } from 'pages/CastPage';
+// import CastPage from 'pages/CastPage';
+// import ReviewsPage from 'pages/ReviewsPage';
+//import { ReviewsPage } from 'pages/ReviewsPage';
+
+import React, { useRef, useState, useEffect, lazy, Suspense } from 'react';
 import { showMovieDetails } from 'services/api';
 import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage';
 import {
@@ -9,14 +14,17 @@ import {
   useLocation,
   useParams,
 } from 'react-router-dom';
-import { CastPage } from 'pages/CastPage';
-import { ReviewsPage } from 'pages/ReviewsPage';
+
 import css from './MovieDetailsPage.module.css';
+import { Loader } from 'components/Loader';
+
+const CastPage = lazy(() => import('pages/CastPage'));
+const ReviewsPage = lazy(() => import('pages/ReviewsPage'));
 
 export const defaultImage =
   'https://cdn4.iconfinder.com/data/icons/small-n-flat/24/movie-alt2-512.png';
 
-export const MovieDetailsPage = () => {
+const MovieDetailsPage = () => {
   const buttonStyle = {
     marginLeft: 20,
   };
@@ -94,13 +102,17 @@ export const MovieDetailsPage = () => {
             </li>
           </ul>
           <div>
-            <Routes>
-              <Route path="cast" element={<CastPage />} />
-              <Route path="reviews" element={<ReviewsPage />} />
-            </Routes>
+            <Suspense fallback={<Loader />}>
+              <Routes>
+                <Route path="cast" element={<CastPage />} />
+                <Route path="reviews" element={<ReviewsPage />} />
+              </Routes>
+            </Suspense>
           </div>
         </div>
       )}
     </div>
   );
 };
+
+export default MovieDetailsPage;

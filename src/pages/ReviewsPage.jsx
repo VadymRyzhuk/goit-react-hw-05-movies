@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { showMovieReview } from 'services/api';
 
-export const ReviewsPage = () => {
+const ReviewsPage = () => {
   const styleUl = {
     listStyle: 'none',
   };
@@ -49,3 +49,5 @@ export const ReviewsPage = () => {
     </div>
   );
 };
+
+export default ReviewsPage;
